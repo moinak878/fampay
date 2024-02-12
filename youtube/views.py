@@ -51,8 +51,6 @@ class ListVideoSearch(generics.ListAPIView):
 
         Used search vector to optimise the search
     """
-    serializer_class = VideoSerializer
-
     def get_queryset(self):
         search_text = self.request.query_params.get('query', None)
         if not search_text:

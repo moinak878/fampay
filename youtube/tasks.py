@@ -46,3 +46,7 @@ def fetch_videos():
 
     # save videos in the database
     YoutubeService.process_videos(videos)
+
+@celery_app.task
+def sample_task():
+    print("sample task running")
