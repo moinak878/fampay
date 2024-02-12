@@ -25,10 +25,10 @@ class APIAuthKey(models.Model):
     @classmethod
     def get_auth_key(cls):
         """
-            This function returns the non exhausted auth api key
-            sorted by created time in ascending order
+            This function returns the non-exhausted auth api key.
+            The newest auth key is returned.
         """
-        api_key = cls.objects.filter(exhausted=False).order_by('created').values()
+        api_key = cls.objects.filter(exhausted=False).order_by('-created').values()
         if len(api_key):
             return api_key[0]['auth_key']
         return None

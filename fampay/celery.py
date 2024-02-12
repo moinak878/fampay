@@ -14,7 +14,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'fetch_youtube_videos': {
         'task': 'youtube.tasks.fetch_videos',
-        'schedule': 30.0
+        'schedule': crontab(minute=1),
     },
 
     'sample_task': {
